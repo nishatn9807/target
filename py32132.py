@@ -3,7 +3,6 @@ import requests
 from threading import Thread
 from discord_webhook import DiscordWebhook, DiscordEmbed
 
-
 proxy_list = ["http://kqfpdd:gtojpg@139.190.30.91:17102",
 "http://xnikty:atogsw@139.190.31.95:17102",
 "http://jyyuap:fqqwfz@139.190.30.113:17102",
@@ -84,11 +83,12 @@ def monitor(locations):
             res = f.json()
             ava_status = res['data']['product']['fulfillment']['store_options'][0]['in_store_only']['availability_status']
             if(ava_status !='OUT_OF_STOCK' and ava_status !='NOT_SOLD_IN_STORE'):
-                print('{} IN STOCK').format(x)
+                print('{} IN STOCK @everyone').format(x)
                 webhook = DiscordWebhook(url='https://discord.com/api/webhooks/793333840248700942/DKwPk7i_GXK7Ce1YHrmdF54YYGtGkMYc0coUggrBZNHi7eAjykHlm6QkXGAMeYrgVMyY')
                 embed = DiscordEmbed(title='{} has restocked'.format(PID), description='https://www.target.com/p/-/A-{}'.format(PID), color=242424)
                 webhook.add_embed(embed)
                 response = webhook.execute()
+                print(response)
             print('{} at {} '.format(ava_status,x))
 
 
