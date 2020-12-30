@@ -1,6 +1,7 @@
 import random
 import requests
 from threading import Thread
+from discord_webhook import DiscordWebhook, DiscordEmbed
 
 
 proxy_list = ["http://kqfpdd:gtojpg@139.190.30.91:17102",
